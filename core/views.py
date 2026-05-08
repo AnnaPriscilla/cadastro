@@ -1,7 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import ContatoForm
 
 def home(request):
-    return HttpResponse("Olá Django!")
+    form = ContatoForm()
 
-# Create your views here.
+    return render(request, 'home.html', {
+        'form': form
+    })
+
+# Create your views here.   
