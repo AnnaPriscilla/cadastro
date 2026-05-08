@@ -1,5 +1,16 @@
 from django import forms
+from .models import Cliente, Cadastro
 
-class ContatoForm(forms.Form):
-    nome = forms.CharField(max_length=100)
-    email = forms.EmailField()
+
+class ContatoForm(forms.ModelForm):
+
+    class Meta:
+        model = Cliente
+        fields = ['nome', 'email']
+
+
+class CadastroForm(forms.ModelForm):
+
+    class Meta:
+        model = Cadastro
+        fields = "__all__"
